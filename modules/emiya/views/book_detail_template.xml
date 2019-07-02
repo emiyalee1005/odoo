@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <template id="book_detail_template" name="Book List">
+
+
+        <div t-if="data != None">
+            id
+            <input id="id" type="number" disabled="true" t-att-value="data.id"></input>
+        </div>
+
+        <div>
+            name
+            <input id="name" type="text" t-att-value="data.name if data!=None else None"></input>
+        </div>
+
+        <div>
+            description
+            <input id="description" type="text" t-att-value="data.description  if data!=None else None"></input>
+        </div>
+
+        <div>
+            status
+            <input type="checkbox" id="status-1" t-att-checked="'true' if data == None or data.status == 0 else none" value="0"
+                   onclick="my_func(-1)"/>todo
+            <input type="checkbox" id="status1" t-att-checked="'true' if data != None and data.status == 1 else none" value="1"
+                   onclick="my_func(1)"/>done
+        </div>
+
+        <button onclick="submit()" >submit</button>
+        <button onclick="remove()" t-if="data != None">delete</button>
+
+        <script type="text/javascript" src="/emiya/static/lib/axios.js"></script>
+        <script type="text/javascript" src="/emiya/static/lib/main.js"></script>
+
+    </template>
+</odoo>

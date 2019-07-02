@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <template id="book_list_template" name="Book List">
+        <button onclick="add()">add</button>
+
+        <script type="text/javascript" src="/emiya/static/lib/main.js"></script>
+
+        <div id="wrap" class="container">
+            <h1>Todo</h1>
+            <t t-foreach="todos" t-as="todo">
+
+                <div class="row">
+                    <span t-field="todo.id"/>
+                    <span t-field="todo.name"/>
+                    <a t-att-href="'/library/todo/detail?id=' + str(todo.id)">view/edit/delete</a>
+                </div>
+            </t>
+            <h1>Fin</h1>
+            <t t-foreach="finish" t-as="fin">
+                <div class="row">
+                    <span t-field="fin.id"/>
+                    <span t-field="fin.name"/>
+                    <a t-att-href="'/library/todo/detail?id=' + str(fin.id)">view/edit/delete</a>
+                </div>
+            </t>
+        </div>
+
+    </template>
+</odoo>
